@@ -65,7 +65,7 @@ void dfs(int n)
 	dp[n][0] = 0;
 	dp[n][1] = 1;
 
-	for (i = 0; i < node[n].size(); i++)			/*bug !!!!   can't use node[n].size*/
+	for (i = 0; i < node[n].size(); i++)			
 	{
 		next = node[n][i];
 		if (visited[next] != 1)
