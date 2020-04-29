@@ -50,10 +50,10 @@ int main()
     freopen("./database/12124.in","r",stdin);
     int cases = 0;
     scanf("%d",&cases);
-    cout << cases << "\n";
     while(cases--)
     {
-        scanf("%d %d",&n,&budget);
+        scanf("%d%d",&n,&budget);
+        cnt = 0;
         for(int i = 0;i<n;i++)
         {
             comp[i].clear();
@@ -65,7 +65,7 @@ int main()
         {
             char type[30] ,name[30];
             int p,q;
-            scanf("%s%s%d%d",type,name,&p,&q);
+            scanf("%s %s %d %d",type,name,&p,&q);
             max_q = max(max_q,q);
             comp[ID(type)].push_back(Component{p,q});
         }
@@ -76,7 +76,7 @@ int main()
             if(ok(mid)) L = mid;
             else R = mid-1;
         }
-        cout <<L;
+        printf("%d\n",L);
 
     }
     return 0;
