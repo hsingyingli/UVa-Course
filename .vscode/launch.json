@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "g++.exe - 建置及偵錯使用中的檔案",
+            "name": "main.exe - 建置及偵錯使用中的檔案",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",

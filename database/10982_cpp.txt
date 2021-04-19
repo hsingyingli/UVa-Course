@@ -1,0 +1,63 @@
+#include <iostream>
+#include <stdio.h>
+#include <string.h>
+#include <algorithm>
+
+using namespace std;
+
+int two[110][110];
+int n,m;
+int vis[110];
+int group[3];
+
+int main() {
+    int t,a,b;
+    freopen("10982.in","r",stdin); 
+    freopen("10982.out","w",stdout);
+    scanf("%d",&t);
+    for(int q=1; q<=t; q++) {
+        memset(vis,0,sizeof(vis));
+        memset(group,0,sizeof(group));
+        memset(two,0,sizeof(two));
+        scanf("%d%d",&n,&m);
+        for(int i=1; i<=m; i++) {
+            scanf("%d%d",&a,&b);
+            two[a][b]=two[b][a]=1;
+        }
+        int num=0;
+
+        for(int i=1; i<=n; i++) {
+            int tmp1=0,tmp2=0;   
+            for(int j=1; j<=n; j++) {
+                if(vis[j]==1 && two[i][j]) {
+                    tmp1++;
+                }
+                if(vis[j]==2 && two[i][j]) {
+                    tmp2++;
+                }
+            }
+
+            if(tmp1>tmp2) {
+                vis[i]=2;
+                group[2]++;
+                num+=tmp2;
+            } else {
+                vis[i]=1;
+                group[1]++;
+                num+=tmp1;
+            }
+        }
+        if(num<=m/2) {
+            printf("Case #%d: %d\n",q,group[1]);
+            for(int i=1; i<=n; i++) {
+                if(vis[i]==1)
+                    printf("%d ",i);
+            }
+            printf("\n");
+        } else {
+            printf("Case #%d: Impossible.\n",q);
+            printf("\n");
+        }
+    }
+    return 0;
+}
