@@ -58,6 +58,27 @@
 			],
 			"group": "build",
 			"detail": "編譯器: cl.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "C/C++: cl.exe 建置使用中檔案",
+			"command": "cl.exe",
+			"args": [
+				"/Zi",
+				"/EHsc",
+				"/nologo",
+				"/Fe:",
+				"${fileDirname}\\${fileBasenameNoExtension}.exe",
+				"${file}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build",
+			"detail": "編譯器: cl.exe"
 		}
 	]
 }
